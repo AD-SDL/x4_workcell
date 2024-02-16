@@ -13,7 +13,7 @@ def main() -> None:
     wf_path = Path(__file__).parent / "workflows" / "example_workflow.yaml"
 
     # This defines the Experiment object that will communicate with the WEI server
-    exp = ExperimentClient("wei_server", "8000", "Example_Program")
+    exp = ExperimentClient("localhost", "8000", "Example_Program")
 
     # This runs the workflow
     flow_info = exp.start_run(

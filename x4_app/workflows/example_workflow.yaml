@@ -5,13 +5,12 @@ metadata:
   version: 0.2
 
 modules:
-  - name: sleeper
-  - name: webcam
+  - name: ot2_x4
 
 flowdef:
   #This defines a step in the workflow. Each step represents an action on a single module
   #This is a human legible name for the step
-  - name: Sleep workcell for t seconds
+  - name: Run protocol
   #This defines which module the action will run on, in this case, a test node that simply sleeps for t seconds
     module: sleeper
   #This tells the module which action in its library to run, in this case grabbing a wellplate from one of the storage tower
@@ -29,3 +28,10 @@ flowdef:
     action: take_picture
     args:
       file_name: "payload.file_name"
+
+  - name: Run OT2 Protocol
+    module: ot2_x4
+    action: run_protocol
+    args:
+      config_path: TODO
+    comment: This will run the protocol at "config_path" on the ot2 in the glovebox
