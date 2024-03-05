@@ -16,7 +16,7 @@ As much as possible, this workcell is designed to be configured declaratively. T
     - Note: whenever you see `${SOME_VARIABLE_NAME}` in the compose file, this value is being taken from the `.env`
 - The Workcell Config in `workcell_defs/x4_workcell.yaml`, which allows you to define WEI specific configuration for your workcell
 
-## Building, Running, and Managing your Workcell and Experiment Application
+## Building, Running, and Managing your Workcell
 
 Here are some common commands you can use to manage this workcell:
 
