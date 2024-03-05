@@ -1,0 +1,16 @@
+name: Run_OT2_Protocol
+metadata:
+  author: Ryan D. Lewis
+  info: Runs a protocol on the OT2
+  version: 0.2
+
+modules:
+  - name: ot2_x4
+
+flowdef:
+  - name: Run OT2 Protocol
+    module: ot2_x4
+    action: run_protocol
+    files:
+      protocol: payload.protocol_file
+    comment: This will run the specified protocol file on the ot2 in the glovebox
