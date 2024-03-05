@@ -16,6 +16,12 @@ As much as possible, this workcell is designed to be configured declaratively. T
     - Note: whenever you see `${SOME_VARIABLE_NAME}` in the compose file, this value is being taken from the `.env`
 - The Workcell Config in `workcell_defs/x4_workcell.yaml`, which allows you to define WEI specific configuration for your workcell
 
+### The OT2 IP
+
+You can find the IP for your OT2 by opening the Opentrons app and going to `Devices`, finding your OT2 by name, then going to `Robot Settings->Networking`.
+
+In your `.env` file, update the value of `OT2_IP=xxx.xxx.xxx.xxx` with that IP.
+
 ## Building, Running, and Managing your Workcell
 
 Here are some common commands you can use to manage this workcell:
