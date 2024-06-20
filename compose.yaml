@@ -1,16 +1,17 @@
 name: example_workcell
 include: [wei.compose.yaml]
-services:
+
   ###########
   # Modules #
   ###########
-  ot2_x4:
-    container_name: ot2_x4
-    image: ghcr.io/ad-sdl/ot2_module
-    command: python ot2_module/src/ot2_rest_node.py --port 2000 --ot2_ip ${OT2_IP} --alias ot2_x4
-    restart: unless-stopped
-    environment:
-      - USER_ID=1000
-      - GROUP_ID=1000
-    ports:
-      - 2000:2000
+# services:
+  # ot2_x4:
+  #   container_name: ot2_x4
+  #   image: ghcr.io/ad-sdl/ot2_module
+  #   command: python ot2_module/src/ot2_rest_node.py --port 2000 --ot2_ip ${OT2_IP} --alias ot2_x4
+  #   restart: unless-stopped
+  #   environment:
+  #     - USER_ID=1000
+  #     - GROUP_ID=1000
+  #   ports:
+  #     - 2000:2000
