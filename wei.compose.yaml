@@ -3,7 +3,7 @@
 #####################
 services:
   x4_wc_server:
-    image: ghcr.io/ad-sdl/wei:v0.5.9
+    image: ghcr.io/ad-sdl/wei:dev
     container_name: x4_wc_server
     ports:
       - 8000:8000
@@ -19,7 +19,7 @@ services:
     depends_on:
       - x4_wc_redis
   x4_wc_engine:
-    image: ghcr.io/ad-sdl/wei:v0.5.9
+    image: ghcr.io/ad-sdl/wei:dev
     container_name: x4_wc_engine
     volumes:
       - ${WORKCELLS_DIR}:/workcell_defs

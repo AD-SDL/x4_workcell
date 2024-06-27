@@ -1,0 +1,13 @@
+name: Test_Platereader_1
+metadata:
+  author: Ryan D. Lewis
+  info: Runs a plate read on the experiment
+  version: 0.2
+
+flowdef:
+  - name: Run Epoch2 Experiment
+    module: platereader_1
+    action: run_experiment
+    args:
+      experiment_file_path: payload.experiment_file_path
+    comment: This will run the specified experiment file on the Epoch 2 in the glovebox

@@ -1,15 +1,12 @@
-name: Test_Epoch2
+name: Test_Platereader_2
 metadata:
   author: Ryan D. Lewis
   info: Runs a plate read on the experiment
   version: 0.2
 
-modules:
-  - name: epoch2
-
 flowdef:
   - name: Run Epoch2 Experiment
-    module: epoch2
+    module: platereader_2
     action: run_experiment
     args:
       experiment_file_path: payload.experiment_file_path
