@@ -17,24 +17,23 @@ def main() -> None:
     wf_pr1 = Path(__file__).parent / "workflows" / "x4_test_platereader1.yaml"
     wf_pr2 = Path(__file__).parent / "workflows" / "x4_test_platereader2.yaml"
 
-    gen5xpt_base = "C:\\Users\\Public\Documents\\Plate Reader\\DATA\\Gen5 w WEI\\7-2-2024 32 reagents\\"
-    gen5xpt_pr1 = gen5xpt_base + "pr1_B22_read_all384wells.xpt"
-   # gen5xpt_pr2 = gen5xpt_base + "pr2_B23_read_all384wells.xpt"
+    gen5xpt_base = "C:\\Users\\Public\Documents\\Plate Reader\\DATA\\Gen5 w WEI\\8-9-2024 32 reagents\\"
+   # gen5xpt_pr1 = gen5xpt_base + "pr1_B27_read_all384wells.xpt"
+    gen5xpt_pr2 = gen5xpt_base + "pr2_B28_read_all384wells.xpt"
 
     # This runs the workflow
     for i in range(1000):
-        flow_info_1 = exp.start_run(
-            wf_pr1.resolve(),
-            payload={"experiment_file_path" : gen5xpt_pr1},
-            blocking=True
-        )
-      #  flow_info_2 = exp.start_run(
-      #      wf_pr2.resolve(),
-      #      payload={"experiment_file_path" : gen5xpt_pr2},
-      #      blocking=True # change to False when the second experiment is on
-      #  )
-      #  print(json.dumps(flow_info_2, indent=2))
+      #  flow_info_1 = exp.start_run(
+      #    wf_pr1.resolve(),
+      #      payload={"experiment_file_path" : gen5xpt_pr1},
+      #      blocking=True
+      #      )
 
+        flow_info_2 = exp.start_run(
+            wf_pr2.resolve(),
+            payload={"experiment_file_path" : gen5xpt_pr2},
+            blocking=True 
+        )
 
 if __name__ == "__main__":
     main()

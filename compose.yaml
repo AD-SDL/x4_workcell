@@ -1,10 +1,9 @@
-name: example_workcell
-include: [wei.compose.yaml]
+name: x4_workcell
 
+services:
   ###########
   # Modules #
   ###########
-# services:
   # ot2_x4:
   #   container_name: ot2_x4
   #   image: ghcr.io/ad-sdl/ot2_module
@@ -15,3 +14,31 @@ include: [wei.compose.yaml]
   #     - GROUP_ID=1000
   #   ports:
   #     - 2000:2000
+  #####################
+  # WEI Core Services #
+  #####################
+  x4_wc_server:
+    image: ghcr.io/ad-sdl/wei:v0.6.2
+    container_name: x4_wc_server
+    ports:
+      - 8000:8000
+    environment:
+      - USER_ID=1000
+      - GROUP_ID=1000
+      - PYTHONUNBUFFERED=1 # Fix weird bug with empty logging
+    volumes:
+      - ${WORKCELLS_DIR}:/workcell_defs
+      - ${WEI_DATA_DIR}:/home/app/.wei
+    command: python3 -m wei.server --workcell /workcell_defs/${WORKCELL_FILENAME} --redis_password="${REDIS_PASSWORD}"
+    restart: unless-stopped
+    depends_on:
+      - x4_wc_redis
+  x4_wc_redis:
+    image: redis
+    container_name: x4_wc_redis
+    ports:
+      - 6379:6379
+    volumes:
+      - ${REDIS_DIR}:/data
+    restart: unless-stopped
+    command: redis-server --save 60 1 --loglevel warning --requirepass "${REDIS_PASSWORD}"
