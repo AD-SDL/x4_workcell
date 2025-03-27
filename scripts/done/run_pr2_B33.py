@@ -1,4 +1,4 @@
-import time, os
+import time
 from typing import Any, Dict
 
 from wei.core.interfaces.rest_interface import RestInterface
@@ -19,17 +19,17 @@ platereader_2 = Module(
 #########################
 # CONFIGURE SCRIPT HERE #
 #########################
+gen5xpt_base = "C:\\Users\\Public\\Documents\\Plate Reader\\DATA\\Gen5 w WEI\\12-20-2024 32 solvents multi\\"
 
-gen5xpt_base = "C:\\Users\\Public\\Documents\\Plate Reader\\DATA\\Gen5 w WEI\\3-26-2025 8 solvents\\"
+platereader = platereader_2
+experiment_path = gen5xpt_base + "pr2_B33_multi_read_all96wells.xpt"
 
-platereader = platereader_1
-experiment_path = gen5xpt_base + "pr1_B41_read_all384wells.xpt"
+Config.smtp_server="mailgateway.anl.gov"
+Config.smtp_port=25
 
 print(f"Running experiment {experiment_path} on plate reader {platereader.name}")
 start_time = datetime.now()
 
-Config.smtp_server="mailgateway.anl.gov"
-Config.smtp_port=25
 i = 0
 result = ()
 previous_run_failed = False
@@ -94,6 +94,6 @@ Timestamp: {datetime.now()}
 Time Elapsed: {datetime.now() - start_time}
 traceback: {traceback.format_exc()}
             """
-        for email in ["ryan.lewis@anl.gov", "Shkrob@anl.gov", "robertla@anl.gov"]:
+        for email in ["ryan.lewis@anl.gov", "Shkrob@anl.gov"]:
             send_email(f"CATASTROPHIC ALERT: Error during error handling on {platereader.name}", email, email_body)
         break

@@ -1,4 +1,4 @@
-import time, os
+import time
 from typing import Any, Dict
 
 from wei.core.interfaces.rest_interface import RestInterface
@@ -20,10 +20,10 @@ platereader_2 = Module(
 # CONFIGURE SCRIPT HERE #
 #########################
 
-gen5xpt_base = "C:\\Users\\Public\\Documents\\Plate Reader\\DATA\\Gen5 w WEI\\3-26-2025 8 solvents\\"
+gen5xpt_base = "C:\\Users\\Public\\Documents\\Plate Reader\\DATA\\Gen5 w WEI\\2-7-2025 16 solvents multi\\"
 
 platereader = platereader_1
-experiment_path = gen5xpt_base + "pr1_B41_read_all384wells.xpt"
+experiment_path = gen5xpt_base + "pr1_B37_multi_read_all96wells.xpt"
 
 print(f"Running experiment {experiment_path} on plate reader {platereader.name}")
 start_time = datetime.now()

@@ -15,11 +15,9 @@ def main() -> None:
 
     # The path to the Workflow definition yaml file
     wf_pr1 = Path(__file__).parent / "workflows" / "x4_test_platereader1.yaml"
-    wf_pr2 = Path(__file__).parent / "workflows" / "x4_test_platereader2.yaml"
 
-    gen5xpt_base = "C:\\Users\\Public\Documents\\Plate Reader\\DATA\\Gen5 w WEI\\8-9-2024 32 reagents\\"
-    gen5xpt_pr1 = gen5xpt_base + "pr1_B27_read_all384wells.xpt"
-   # gen5xpt_pr2 = gen5xpt_base + "pr2_B28_read_all384wells.xpt"
+    gen5xpt_base = "C:\\Users\\Public\Documents\\Plate Reader\\DATA\\Gen5 w WEI\\12-9-2024 32 solvents multi\\"
+    gen5xpt_pr1 = gen5xpt_base + "pr1_B30_multi_read_all96wells.xpt"
 
     # This runs the workflow
     for i in range(1000):
